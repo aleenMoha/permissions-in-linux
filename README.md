@@ -28,31 +28,16 @@ Example permission: `rwxrwxr-x`
 
 ## 🔄 Flowchart for File Permissions
 
-           +-----------------------+
-           | Start with a file     |
-           +-----------------------+
-                     |
-                     v
-         +--------------------------+
-         | Who needs access?        |
-         | (Owner, Group, Others)   |
-         +--------------------------+
-                     |
-          +----------+----------+
-          |                     |
-      Owner               Group / Others
-          |                     |
-          v                     v
-  +---------------+     +-----------------+
-  | Read? Write?  |     | Read? Execute?  |
-  | Execute?      |     +-----------------+
-  +---------------+              |
-          |                      v
-          +---------------> Apply permissions
-                                (e.g., chmod)
+| Role     | Needs Read? | Needs Write? | Needs Execute? | Final Permission |
+|----------|-------------|--------------|----------------|------------------|
+| Owner    | ✅          | ✅           | ✅             | `rwx`            |
+| Group    | ✅          | ✅           | ✅             | `rwx`            |
+| Others   | ✅          | ❌           | ✅             | `r-x`            |
+
+**Final Permission String**: `rwxrwxr-x`  
+**Octal Value**: `775`
 
 ---
-
 ## 🖥️ Method 1: Using Linux Terminal (Ubuntu)
 
 ### Step-by-Step
